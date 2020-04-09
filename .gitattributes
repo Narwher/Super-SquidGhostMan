@@ -1,1 +1,3 @@
 *.gmx linguist-detectable=false
+*.nsis linguist-detectable=false
+*.html linguist-detectable=false

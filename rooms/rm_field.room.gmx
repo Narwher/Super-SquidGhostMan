@@ -48,14 +48,14 @@ if global.theMusic != (working_directory + "\bgm\snd_field.ogg"){
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="-1" objName="" xview="0" yview="0" wview="320" hview="240" xport="0" yport="0" wport="640" hport="480" hborder="320" vborder="240" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="&lt;undefined&gt;" xview="0" yview="0" wview="320" hview="240" xport="0" yport="0" wport="640" hport="480" hborder="320" vborder="240" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
     <instance objName="obj_drawbg1" x="64" y="32" name="inst_B238D858" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -179,7 +179,6 @@ if global.theMusic != (working_directory + "\bgm\snd_field.ogg"){
     <instance objName="obj_sign" x="240" y="528" name="inst_B66AA3E5" locked="0" code="if global.townSaved == false{&#xA;msg = &quot;Hey.&quot;&#xA;msg2 = &quot;When you've done something with #your life, come back here.&quot;&#xA;msg3 = &quot;&quot;&#xA;msg4 = &quot;&quot;&#xA;por = spr_sign_portrait&#xA;}else{&#xA;msg = &quot;...&quot;&#xA;msg2 = &quot;.............&quot;&#xA;msg3 = &quot;Someone drew a peepee on the sign, it appears :^0&quot;&#xA;msg4 = &quot;'Good' said the SquidGhostMan... #...you think.&quot;&#xA;por = spr_sign_portrait&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_teleporter" x="192" y="512" name="inst_1EB3438F" locked="0" code="targetRoom = rm_office;&#xA;target_x = 480;&#xA;target_y = 384;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coot" x="160" y="944" name="inst_2E93BF29" locked="0" code="if global.townSaved == false{&#xA;msg = &quot;I'm a hermit. #A knowledgeable and well dressed one, at that.&quot;&#xA;msg2 = &quot;The WORMs that plague the nearby #town of NEW PACIFIC...&quot;&#xA;msg3 = &quot;They live a primitive existence, #and seem to prefer travel in packs.&quot;&#xA;msg4 = &quot;What's more, their easily-distinguishable leader #is said to carry a sizable sum of CLAMs...&quot;&#xA;por = spr_coot_portrait&#xA;}else{&#xA;msg = &quot;Salutations, your squidly ghostliness.&quot;&#xA;msg2 = &quot;&quot;&#xA;msg3 = &quot;&quot;&#xA;msg4 = &quot;&quot;&#xA;por = spr_coot_portrait&#xA;}&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_elevator_fake" x="256" y="32" name="inst_8881CBD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ammo" x="16" y="80" name="inst_F1DD29D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kelp" x="1344" y="368" name="inst_49283678" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kelp" x="1328" y="352" name="inst_13D58BBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1063,30 +1062,7 @@ if global.theMusic != (working_directory + "\bgm\snd_field.ogg"){
     <instance objName="obj_wood" x="1216" y="384" name="inst_94D02D62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wood" x="1248" y="384" name="inst_35E814A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wood" x="1280" y="384" name="inst_4E1A046C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_switchblock" x="400" y="416" name="inst_9F6BB427" locked="0" code="pos = 1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_switchblock" x="448" y="128" name="inst_BBBB362D" locked="0" code="pos = 1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_switcher" x="304" y="416" name="inst_B36BA37D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fan_right" x="0" y="224" name="inst_278E60BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="32" y="224" name="inst_866597F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="64" y="224" name="inst_5FDCD90B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="96" y="224" name="inst_C310FE9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="128" y="224" name="inst_4BC7AAD7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_up" x="128" y="192" name="inst_BCEE670E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boost_up" x="128" y="160" name="inst_3B30F1AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="208" y="176" name="inst_82DDC438" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="240" y="176" name="inst_F4CE18B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="272" y="176" name="inst_AC50538C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_down" x="304" y="176" name="inst_9816C319" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_down" x="304" y="208" name="inst_71537229" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_down" x="304" y="240" name="inst_72BE9114" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_left" x="304" y="272" name="inst_542FFA99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_left" x="272" y="272" name="inst_F7477C10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_left" x="240" y="272" name="inst_B1558D7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_up" x="208" y="272" name="inst_C8F2C1D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_up" x="208" y="240" name="inst_C82FF6AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_up" x="208" y="208" name="inst_1896A03D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_switchblock" x="480" y="224" name="inst_7B53CD7F" locked="0" code="pos = 0&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="256" y="32" name="inst_802413D1" locked="0" code="targetRoom = rm_cliffs;&#xA;target_x = 32;&#xA;target_y = 192;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_grass_left" x="64" y="96" name="inst_41BBDBEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_grass_left" x="32" y="80" name="inst_F4020D9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dirt" x="64" y="128" name="inst_2E837E47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1127,18 +1103,6 @@ if global.theMusic != (working_directory + "\bgm\snd_field.ogg"){
     <instance objName="obj_dirt" x="1184" y="384" name="inst_BA50E5B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dirt" x="1184" y="400" name="inst_35E42201" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dirt" x="1184" y="416" name="inst_E364CB99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="0" y="0" name="inst_2C5F2376" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="32" y="0" name="inst_A5D87670" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="64" y="0" name="inst_1393A0B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="96" y="0" name="inst_049618A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="128" y="0" name="inst_3F8AE3BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="160" y="0" name="inst_34C2E7BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="192" y="0" name="inst_2E29EE7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="224" y="0" name="inst_06E7711B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="256" y="0" name="inst_D075A091" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="288" y="0" name="inst_FA2E2FDB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="320" y="0" name="inst_3733667A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boost_right" x="352" y="0" name="inst_104CF4A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_steepgrass_right" x="1184" y="672" name="inst_CEA21BEC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_steepgrass_right" x="672" y="576" name="inst_A0235C96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_steepgrass_left" x="736" y="576" name="inst_DC426A26" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

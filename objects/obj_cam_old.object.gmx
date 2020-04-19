@@ -4,31 +4,11 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>This must be the first object (I think?)</string>
-          </argument>
-        </arguments>
-      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -45,42 +25,52 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variable Set - SETUP ROOM ONLY!
+            <string>//x = global.player_x
+//y = global.player_y
 
-//This object should remain Persistent
+x = obj_birch.x + lengthdir_x(32,obj_birch.image_angle - 45)
+y = obj_birch.y + lengthdir_y(32,obj_birch.image_angle - 45)
 
-//Game
-global.gameMove = true;
-global.rainbow = false;
-global.rmName = ""
-global.theMusic = ""
+var xTo;
+var yTo;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var hraxis = gamepad_axis_value(0, gp_axisrh);
+var vraxis = gamepad_axis_value(0, gp_axisrv);
+//image_angle = point_direction(0, 0, hraxis,vraxis);
 
+move_towards_point(hraxis,vraxis,0)
+xTo = obj_birch.x + lengthdir_x(min(64, distance_to_point(hraxis,vraxis)),direction)
+yTo = obj_birch.y + lengthdir_y(min(32, distance_to_point(hraxis,vraxis)),direction)
 
-//Chapter 1 flags
-global.shutterOpen = false;
-global.oldasskey = false;
-global.hasRocket = false;
-global.seeMayor = false;
-global.townSaved = false;
-global.impSpoken = false;
-global.shutterOpen2 = false;
-global.secretRoom = false;
+x +=(xTo-x)/15
+y +=(yTo-y)/15
 
-//Player
-global.player_x = 96;
-global.player_y = 400;
-global.ammo = 1000
-global.missile = 20
-global.hp = 100
-global.money = 0
-global.invulnerable = false
+view_xview = -(view_wview/2) + x;
+view_yview = -(view_hview/2) + y;
 
-//Chitcode
-global.noclip = false
-global.god = false
-
-//gamepad
-gamepad_set_axis_deadzone(0,.25);
+view_xview = min(max(view_xview, 0), room_width-view_wview);
+view_yview = min(max(view_yview, 0), room_height-view_hview)
 </string>
           </argument>
         </arguments>

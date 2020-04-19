@@ -61,8 +61,9 @@ timer = 0
 dirr = 0
 s = 0
 
-//instance clear
-//alarm[0] = 1
+//automatic float
+alarm[0] = 1
+
 
 
 
@@ -133,11 +134,11 @@ instance_create(0,0,obj_hud);
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>x</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>y</string>
           </argument>
         </arguments>
       </action>
@@ -259,10 +260,14 @@ instance_activate_object(obj_switchblock)
           <argument>
             <kind>1</kind>
             <string>///Mechanics
+
+var hraxis = gamepad_axis_value(0, gp_axisrh);
+var vraxis = gamepad_axis_value(0, gp_axisrv);
+
 if vspeed &gt;4 vspeed = 4
 if vspeed &lt; -4 vspeed = -4
 if global.gameMove == true{
-    if keyboard_check(ord('D')){
+    if gamepad_button_check(0,gp_padr) || (gamepad_axis_value(0,gp_axislh)&gt;0){
         if place_free(x,y+1){
             if place_free(x+3,y){
                 x+=3
@@ -277,7 +282,7 @@ if global.gameMove == true{
             y-=(s*sin((dirr*pi)/180))
         }
     }   
-    if keyboard_check(ord('A')){
+    if gamepad_button_check(0,gp_padl) || (gamepad_axis_value(0,gp_axislh)&lt;0){
         if place_free(x,y+1){
             if place_free(x-3,y){
                 x-=3
@@ -301,21 +306,28 @@ if global.gameMove == true{
         gravity=0
         vspeed = 0
     }
-   if keyboard_check_pressed(ord('W')){
+   if gamepad_button_check_pressed(0,gp_face1) || (gamepad_button_check_pressed(0,gp_padu)){
         sound_play(snd_blip);
+        instance_create(x,bbox_bottom+4,obj_bubble);
         if vspeed &gt;= -2.5{
             vspeed -= 1.25
         }
     }
-    if keyboard_check_pressed(ord('S')){
+    if gamepad_button_check_pressed(0,gp_padd) || (gamepad_axis_value(0,gp_axislv)&gt;0){
         if place_free(x,y+1){
             if vspeed &lt;= 1.75{
                 vspeed +=.75
             }
         }
     }
-    angle = point_direction(x, y, mouse_x, mouse_y);
+    if (hraxis !=0) || (vraxis != 0){
+        angle = point_direction(x, y, obj_cam.x, obj_cam.y);
+    }else{
+        angle = 0
+    }
     bullet_dir = angle
+}else{
+    vspeed = 0
 }
 
 //invulnerable timer
@@ -330,7 +342,7 @@ if global.invulnerable == true{
 }
 
 //Messages
-if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&amp; !instance_exists(obj_msg_parent){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2)) &amp;&amp; !instance_exists(obj_msg_parent){
     if place_meeting(x,y,obj_talk){
         scr_talkies(instance_place(x, y, obj_talk).msg, instance_place(x, y, obj_talk).msg2, instance_place(x, y, obj_talk).msg3, instance_place(x, y, obj_talk).msg4, instance_place(x, y, obj_talk).por);
         global.gameMove = false
@@ -338,14 +350,14 @@ if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&
 }
 
 //shop snakes
-if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&amp; !instance_exists(obj_msg_parent){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2)) &amp;&amp; !instance_exists(obj_msg_parent){
     if place_meeting(x,y,obj_merch){
         global.gameMove = false
         instance_create(0,0,obj_shop);
     }
 }
 //Recpetionists
-if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&amp; !instance_exists(obj_msg_parent){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2)) &amp;&amp; !instance_exists(obj_msg_parent){
     if place_meeting(x,y,obj_recep){
         instance_create(0,0, obj_recep_talk)
         global.gameMove = false
@@ -353,7 +365,7 @@ if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&
 }
 
 //blockfish
-if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&amp; !instance_exists(obj_msg_parent){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2))  &amp;&amp; !instance_exists(obj_msg_parent){
     if place_meeting(x+2,y,obj_blockfish){
         instance_create(0,0, obj_blockfish_talk)
         global.gameMove = false
@@ -361,7 +373,7 @@ if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&
 }
 
 //Mayor
-if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&amp; !instance_exists(obj_msg_parent){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2) )  &amp;&amp; !instance_exists(obj_msg_parent){
     if place_meeting(x,y,obj_mayor){
         instance_create(0,0, obj_mayor_talk)
         global.gameMove = false
@@ -369,7 +381,7 @@ if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&
 }
 
 //Jay Convo
-if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord('S'))) &amp;&amp; !instance_exists(obj_msg_parent){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2) ) &amp;&amp; !instance_exists(obj_msg_parent){
     if place_meeting(x,y,obj_imp){
         instance_create(0,0, obj_imp_talk)
         global.gameMove = false
@@ -533,7 +545,7 @@ if place_meeting(x+1,y,obj_spike_left){
             <string>///Missile Shooting
 if global.gameMove == true{
     if global.hasRocket == true{
-        if (mouse_check_button_pressed(mb_right)){
+        if gamepad_button_check_pressed(0,gp_shoulderl) ||  gamepad_button_check(0,gp_shoulderlb){
             if global.missile &gt; 0 &amp;&amp; !instance_exists(obj_missile){
                 with (instance_create(x, y, obj_missile)){
                     move_towards_point(mouse_x,mouse_y, 8);
@@ -581,6 +593,57 @@ if missile &gt; 0 &amp;&amp; !instance_exists(obj_missile){
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>shoot bubbles</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Shoot Bubbles
+if global.gameMove == true{
+    if gamepad_button_check(0,gp_shoulderr) ||  gamepad_button_check(0,gp_shoulderrb){
+    if global.ammo &gt; 0 {
+        inst = instance_create(x, y, obj_bullet);
+        inst.direction = bullet_dir;
+        inst.speed = 6;
+        global.ammo -= 1;
+    }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>Esc key handler</string>
           </argument>
         </arguments>
@@ -602,7 +665,7 @@ if missile &gt; 0 &amp;&amp; !instance_exists(obj_missile){
           <argument>
             <kind>1</kind>
             <string>///press esc
-if keyboard_check_pressed(vk_escape){
+if (gamepad_button_check_pressed(0,gp_start)) {
     if !instance_exists(obj_msg_parent)&amp;&amp; !instance_exists(obj_shop) &amp;&amp; instance_exists(obj_control) &amp;&amp; global.gameMove == true{
         keyboard_clear(vk_escape);
         instance_create(x,y,obj_menu);
@@ -1356,7 +1419,7 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Interact with Door
-if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_space){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2)){
     keyboard_clear(vk_space)
     if !instance_exists(obj_msg_parent){
         instance_create(0,0,obj_elevator_msg)
@@ -1405,7 +1468,7 @@ if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_space){
           <argument>
             <kind>1</kind>
             <string>///Interact with Door
-if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_space){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2)){
     keyboard_clear(vk_space)
     if !instance_exists(obj_msg_parent){
         instance_create(0,0,obj_lockdoor1_msg)
@@ -1454,11 +1517,12 @@ if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_space){
           <argument>
             <kind>1</kind>
             <string>///Interact with teleporter
-if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_space){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2)){
     if !instance_exists(obj_msg_parent){
         keyboard_clear(vk_space)
         global.player_x = other.target_x
         global.player_y = other.target_y
+        vspeed = 0
         transition_kind = 21
         room_goto(other.targetRoom)
     }
@@ -1560,7 +1624,7 @@ if !instance_exists(obj_msg_parent){
           <argument>
             <kind>1</kind>
             <string>///Interact with Door
-if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_space){
+if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2)){
     if !instance_exists(obj_msg_parent){
         keyboard_clear(vk_space)
         global.player_x = other.target_x
@@ -2140,9 +2204,10 @@ if global.hasRocket == true{
             <kind>1</kind>
             <string>///Interact with Save point
 if !instance_exists(obj_save) &amp;&amp; !instance_exists(obj_msg_parent){
-    if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_space){
+    if (gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_face2)){
         keyboard_clear(vk_space);
         keyboard_clear(ord('S'));
+        vspeed = 0
         global.player_x = other.x
         global.player_y = other.y
         instance_create(0,0,obj_save);
@@ -2297,9 +2362,9 @@ if global.invulnerable == true{
 }
 
 if global.gameMove ==true{
-    if mouse_x &lt;= obj_birch.x{
-        if (keyboard_check(ord('A')) || keyboard_check(ord('D'))) {
-            if mouse_check_button(mb_left) || mouse_check_button(mb_right){
+    if obj_cam.x &lt;= obj_birch.x{
+        if (gamepad_button_check(0,gp_padr) || (gamepad_button_check(0,gp_padl) || (gamepad_axis_value(0,gp_axislh) != 0))) {
+            if gamepad_button_check(0,gp_shoulderl) || gamepad_button_check(0,gp_shoulderlb) || gamepad_button_check(0,gp_shoulderr) || gamepad_button_check(0,gp_shoulderrb){
                 draw_sprite_ext(spr_birch_shoot, image_index, x, y, 1,-1, angle,image_blend,image_alpha)
                 image_speed = .15
             }else{
@@ -2307,21 +2372,21 @@ if global.gameMove ==true{
                 image_speed = .15
             }
         }else{
-            if keyboard_check(ord('W')) || keyboard_check(ord('S')) {
-                if mouse_check_button(mb_left) || mouse_check_button(mb_right){
+            if (gamepad_button_check(0,gp_padu) || (gamepad_button_check(0,gp_padd) || (gamepad_axis_value(0,gp_axislv) != 0))) {
+                if gamepad_button_check(0,gp_shoulderl) || gamepad_button_check(0,gp_shoulderlb) || gamepad_button_check(0,gp_shoulderr) || gamepad_button_check(0,gp_shoulderrb){
                     draw_sprite_ext(spr_birch_shoot, 1, x, y, 1,-1, angle,image_blend,image_alpha)
                 }else{
                     draw_sprite_ext(spr_birch, 1, x, y, 1,-1, angle,image_blend,image_alpha)
                 }
-            }else if mouse_check_button(mb_left) || mouse_check_button(mb_right){
+            }else if gamepad_button_check(0,gp_shoulderl) || gamepad_button_check(0,gp_shoulderlb) || gamepad_button_check(0,gp_shoulderr) || gamepad_button_check(0,gp_shoulderrb){
                 draw_sprite_ext(spr_birch_shoot, 0, x, y, 1,-1, angle,image_blend,image_alpha)
             }else{
                 draw_sprite_ext(spr_birch, 0, x, y, 1,-1, angle,image_blend,image_alpha)
             }
         }
     }else{
-        if (keyboard_check(ord('A')) || keyboard_check(ord('D'))) {
-            if mouse_check_button(mb_left) || mouse_check_button(mb_right){
+        if (gamepad_button_check(0,gp_padr) || (gamepad_button_check(0,gp_padl) || (gamepad_axis_value(0,gp_axislh) != 0))) {
+            if gamepad_button_check(0,gp_shoulderl) || gamepad_button_check(0,gp_shoulderlb) || gamepad_button_check(0,gp_shoulderr) || gamepad_button_check(0,gp_shoulderrb){
                 draw_sprite_ext(spr_birch_shoot, image_index, x, y, 1,1, angle,image_blend,image_alpha)
                 image_speed = .15
             }else{
@@ -2329,13 +2394,13 @@ if global.gameMove ==true{
                 image_speed = .15
             }
         }else{
-            if keyboard_check(ord('W')) || keyboard_check(ord('S')) {
-                if mouse_check_button(mb_left) || mouse_check_button(mb_right){
+            if (gamepad_button_check(0,gp_padu) || (gamepad_button_check(0,gp_padd) || (gamepad_axis_value(0,gp_axislv) != 0)))  {
+                if gamepad_button_check(0,gp_shoulderl) || gamepad_button_check(0,gp_shoulderlb) || gamepad_button_check(0,gp_shoulderr) || gamepad_button_check(0,gp_shoulderrb){
                     draw_sprite_ext(spr_birch_shoot, 1, x, y, 1,1, angle,image_blend,image_alpha)
                 }else{
                     draw_sprite_ext(spr_birch, 1, x, y, 1,1, angle,image_blend,image_alpha)
                 }
-            }else if mouse_check_button(mb_left) || mouse_check_button(mb_right){
+            }else if gamepad_button_check(0,gp_shoulderl) || gamepad_button_check(0,gp_shoulderlb) || gamepad_button_check(0,gp_shoulderr) || gamepad_button_check(0,gp_shoulderrb){
                 draw_sprite_ext(spr_birch_shoot, 0, x, y, 1,1, angle,image_blend,image_alpha)
             }else{
                 draw_sprite_ext(spr_birch, 0, x, y, 1,1, angle,image_blend,image_alpha)
@@ -2343,7 +2408,7 @@ if global.gameMove ==true{
         }
     }
 }else{
-    if mouse_x &lt; obj_birch.x{
+    if obj_cam.x &lt; obj_birch.x{
         draw_sprite_ext(spr_birch, 0, x, y, -1,1, 0,image_blend,image_alpha)
     }else{
         draw_sprite_ext(spr_birch, 0, x, y, 1,1, 0,image_blend,image_alpha)

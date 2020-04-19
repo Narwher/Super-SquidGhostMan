@@ -3,6 +3,110 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="6" name="datafiles">
+    <datafile>
+      <name>msvcr100.dll</name>
+      <exists>-1</exists>
+      <size>770384</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>msvcr100.dll</filename>
+    </datafile>
+    <datafile>
+      <name>ogg.dll</name>
+      <exists>-1</exists>
+      <size>57344</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>ogg.dll</filename>
+    </datafile>
+    <datafile>
+      <name>OpenAL32.dll</name>
+      <exists>-1</exists>
+      <size>109080</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>OpenAL32.dll</filename>
+    </datafile>
+    <datafile>
+      <name>vorbis.dll</name>
+      <exists>-1</exists>
+      <size>1163264</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>vorbis.dll</filename>
+    </datafile>
+    <datafile>
+      <name>vorbisfile.dll</name>
+      <exists>-1</exists>
+      <size>77824</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>vorbisfile.dll</filename>
+    </datafile>
+    <datafile>
+      <name>wrap_oal.dll</name>
+      <exists>-1</exists>
+      <size>444952</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>wrap_oal.dll</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\Caster</extension>
   </NewExtensions>
@@ -217,6 +321,7 @@
         <object>objects\obj_drawbg1</object>
         <object>objects\obj_control</object>
         <object>objects\obj_cam</object>
+        <object>objects\obj_cam_old</object>
       </objects>
       <objects name="Spikes">
         <object>objects\obj_spike_up</object>

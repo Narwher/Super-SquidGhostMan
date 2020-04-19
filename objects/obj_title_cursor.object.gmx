@@ -59,12 +59,12 @@
     y = 412
 }
 
-if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_down){
+if gamepad_button_check_pressed(0,gp_padd) || (gamepad_axis_value(0,gp_axislv) &gt; 0){
     if currentOption &lt; 3{
         currentOption = currentOption + 1;
         sound_play(snd_click)
     }
-}else if keyboard_check_pressed(ord('W')) || keyboard_check_pressed(vk_up){
+}else if gamepad_button_check_pressed(0,gp_padu) || (gamepad_axis_value(0,gp_axislv) &lt; 0){
     if currentOption &gt; 1 {
         currentOption = currentOption - 1;
         sound_play(snd_click)
@@ -72,7 +72,7 @@ if keyboard_check_pressed(ord('S')) || keyboard_check_pressed(vk_down){
 }
 
 if currentOption == 1{
-    if keyboard_check_pressed(vk_return){
+    if gamepad_button_check_pressed(0,gp_start) || gamepad_button_check_pressed(0,gp_face1){
         keyboard_clear(vk_return)
         //instance_create(320,240,obj_birch);
         sound_play(snd_ohyeah)
@@ -80,13 +80,13 @@ if currentOption == 1{
         room_goto(rm_chap1)
     }
 }else if currentOption == 2{
-    if keyboard_check_pressed(vk_return){
+    if gamepad_button_check_pressed(0,gp_start) || gamepad_button_check_pressed(0,gp_face1){
         sound_play(snd_ohyeah)
         scr_loadgame();
         keyboard_clear(vk_return)
     }
 }else if currentOption == 3{
-    if keyboard_check_pressed(vk_return){
+    if gamepad_button_check_pressed(0,gp_start) || gamepad_button_check_pressed(0,gp_face1){
         game_end();
     }
 }

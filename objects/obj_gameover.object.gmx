@@ -56,12 +56,12 @@
     y = 384
 }
 
-if keyboard_check_pressed(ord('D')) || keyboard_check_pressed(vk_right){
+if gamepad_button_check_pressed(0,gp_padr) || (gamepad_axis_value(0,gp_axislh) &gt; 0){
     if currentOption == 1 {
         currentOption = 2;
         sound_play(snd_click)
     }
-}else if keyboard_check_pressed(ord('A')) || keyboard_check_pressed(vk_left){
+}else if gamepad_button_check_pressed(0,gp_padl) || (gamepad_axis_value(0,gp_axislh) &lt; 0){
     if currentOption == 2 {
         currentOption = 1
         sound_play(snd_click)
@@ -69,13 +69,13 @@ if keyboard_check_pressed(ord('D')) || keyboard_check_pressed(vk_right){
 }
 
 if currentOption == 1{
-    if keyboard_check_pressed(vk_return){
+    if gamepad_button_check_pressed(0,gp_start) || gamepad_button_check_pressed(0,gp_face1){
         sound_play(snd_ohyeah)
         scr_loadgame();
     }
 }else if currentOption == 2{
-    if keyboard_check_pressed(vk_return){
-        game_end();
+    if gamepad_button_check_pressed(0,gp_start) || gamepad_button_check_pressed(0,gp_face1){
+        game_restart();
     }
 }
 </string>
